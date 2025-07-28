@@ -29,16 +29,16 @@ mod my_module {
     // TODO: Complete the function as described above.
     pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
         input
-            .into_iter()
+            .iter()
             .map(|(s, cmd)| {
                 match cmd {
                     Command::Uppercase => s.to_uppercase(),
                     Command::Trim => s.trim().to_string(),
-                    Command::Append(times) => format!("{}{}", s, "bar".repeat(times)),
+                    Command::Append(times) => format!("{}{}", s, "bar".repeat(*times)),
                 }
             })
             .collect()
-}
+    }
 }
 
 fn main() {

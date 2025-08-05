@@ -26,8 +26,8 @@ fn result_with_list() -> Result<Vec<i64>, DivisionError>{
     let division_results = numbers
         .into_iter()
         .map(|n| divide(n, 27));
-    Ok(division_results
-        .flat_map(|x| x)
+    Ok(division_results        
+        .flatten()// means  .flat_map(|x| x)
         .collect::<Vec<i64>>())
 }
 
@@ -35,15 +35,11 @@ fn result_with_list() -> Result<Vec<i64>, DivisionError>{
 // Desired output: `[Ok(1), Ok(11), Ok(1426), Ok(3)]`
 fn list_of_results() -> Vec<Result<i64, DivisionError>>{
     let numbers = [27, 297, 38502, 81];
-    let division_results = numbers
+    numbers
         .into_iter()
-        .map(|n| divide(n, 27));
-    division_results
-        .flat_map(|x| Ok(x))
+        .map(|n| divide(n, 27))
         .collect::<Vec<Result<i64, DivisionError>>>()
 }
-
-//impl 
 
 fn main() {
     // You can optionally experiment here.

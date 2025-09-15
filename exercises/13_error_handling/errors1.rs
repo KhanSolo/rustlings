@@ -1,5 +1,3 @@
-use std::fmt::Error;
-
 // TODO: This function refuses to generate text to be printed on a nametag if
 // you pass it an empty string. It'd be nicer if it explained what the problem
 // was instead of just returning `None`. Thankfully, Rust has a similar
